@@ -51,18 +51,16 @@ public class DomParserExample {
 
         // get a nodelist of employee Elements, parse each into Employee object
         NodeList nodeList = documentElement.getElementsByTagName("Employee");
-        if (nodeList != null) {
-            for (int i = 0; i < nodeList.getLength(); i++) {
+        for (int i = 0; i < nodeList.getLength(); i++) {
 
-                // get the employee element
-                Element element = (Element) nodeList.item(i);
+            // get the employee element
+            Element element = (Element) nodeList.item(i);
 
-                // get the Employee object
-                Employee employee = parseEmployee(element);
+            // get the Employee object
+            Employee employee = parseEmployee(element);
 
-                // add it to list
-                employees.add(employee);
-            }
+            // add it to list
+            employees.add(employee);
         }
     }
 
@@ -92,7 +90,7 @@ public class DomParserExample {
     private String getTextValue(Element element, String tagName) {
         String textVal = null;
         NodeList nodeList = element.getElementsByTagName(tagName);
-        if (nodeList != null && nodeList.getLength() > 0) {
+        if (nodeList.getLength() > 0) {
             // here we expect only one <Name> would present in the <Employee>
             textVal = nodeList.item(0).getFirstChild().getNodeValue();
 
